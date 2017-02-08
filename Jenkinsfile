@@ -14,7 +14,9 @@ node('OS1') {
 		// hibernate-orm-master-h2-main
 		stage('Test H2') {
 			withJavaEnv() {
-				status = sh (script: "./gradlew clean test publish -Dmaven.settings=/home/jenkins/.m2/settings-orm-release.xml", returnStatus: true)
+				// NOTE: disabled publish for testing
+				//status = sh (script: "./gradlew clean test publish -Dmaven.settings=/home/jenkins/.m2/settings-orm-release.xml", returnStatus: true)
+				status = sh (script: "./gradlew clean test -Dmaven.settings=/home/jenkins/.m2/settings-orm-release.xml", returnStatus: true)
 				step([$class: 'JUnitResultArchiver', testResults: '**/target/test-results/test/*.xml'])
 				handleStatusCode(status, statusRecipients)
 				stash "binary"
