@@ -13,7 +13,7 @@ import static java.lang.Boolean.TRUE;
 
 /**
  * Descriptor for {@link Boolean} handling.
- *
+ *	Boolean类型的描述符处理器
  * @author Steve Ebersole
  */
 public class BooleanTypeDescriptor extends AbstractTypeDescriptor<Boolean> {

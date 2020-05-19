@@ -15,6 +15,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
+ * Jdbc类型与Java类映射测试
  * @author Tiger Wang
  */
 public class JdbcTypeJavaClassMappingsTest {
@@ -27,15 +28,24 @@ public class JdbcTypeJavaClassMappingsTest {
 	public void after() throws Exception {
 	}
 
+	/**
+	 * 测试确定JavaClass的Jdbc类型代码
+	 * @throws Exception
+	 */
 	@Test
 	public void testDetermineJdbcTypeCodeForJavaClass() throws Exception {
 		int jdbcTypeCode = JdbcTypeJavaClassMappings.INSTANCE.determineJdbcTypeCodeForJavaClass( Short.class );
+		int jdbcTypeCode = JdbcTypeJavaClassMappings.INSTANCE.determineJdbcTypeCodeForJavaClass( Integer.class );
 		assertEquals( jdbcTypeCode, Types.SMALLINT );
 	}
 
+	/**
+	 * 测试确定Jdbc类型代码的JavaClass类型代码
+	 * @throws Exception
+	 */
 	@Test
 	public void testDetermineJavaClassForJdbcTypeCodeTypeCode() throws Exception {
-		Class javaClass = JdbcTypeJavaClassMappings.INSTANCE.determineJavaClassForJdbcTypeCode( Types.SMALLINT );
+		Class javaClass = JdbcTypeJavaClassMappings.INSTANCE.determineJavaClassForJdbcTypeCode( Types.TINYINT );
 		assertEquals( javaClass, Short.class );
 	}
 

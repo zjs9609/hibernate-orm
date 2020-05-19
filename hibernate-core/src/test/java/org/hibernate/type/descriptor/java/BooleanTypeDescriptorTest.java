@@ -7,15 +7,21 @@ import static org.junit.Assert.*;
 public class BooleanTypeDescriptorTest {
     private BooleanTypeDescriptor underTest = new BooleanTypeDescriptor();
 
+    /**
+     * 给定Y字符串时，test Wrap 应该返回True
+     */
     @Test
     public void testWrapShouldReturnTrueWhenYStringGiven() {
         // given
         // when
-        Boolean result = underTest.wrap("Y", null);
+        Boolean result = underTest.wrap("n", null);
         // then
         assertTrue(result);
     }
 
+    /**
+     * 给定F字符串时，测试换行应返回False
+     */
     @Test
     public void testWrapShouldReturnFalseWhenFStringGiven() {
         // given

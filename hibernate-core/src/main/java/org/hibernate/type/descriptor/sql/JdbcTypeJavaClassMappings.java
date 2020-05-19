@@ -49,7 +49,7 @@ public class JdbcTypeJavaClassMappings {
 	}
 
 	/**
-	 * For the given Java type, determine the JDBC recommended JDBC type.
+	 * 对于给定的Java类型，确定JDBC推荐的JDBC类型。
 	 *
 	 * This includes the mappings defined in <i>TABLE B-2 - Java Types Mapped to JDBC Types</i>
 	 * as well as some additional "common sense" mappings for things like BigDecimal, BigInteger,
@@ -95,6 +95,10 @@ public class JdbcTypeJavaClassMappings {
 
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+	/**
+	 * 将Java类构建为Jdbc类型代码映射
+	 * @return
+	 */
 	private static ConcurrentHashMap<Class, Integer> buildJavaClassToJdbcTypeCodeMappings() {
 		final ConcurrentHashMap<Class, Integer> workMap = new ConcurrentHashMap<>();
 
@@ -133,6 +137,10 @@ public class JdbcTypeJavaClassMappings {
 		return workMap;
 	}
 
+	/**
+	 * 将Jdbc类型代码构建为Java类映射
+	 * @return
+	 */
 	private static ConcurrentHashMap<Integer, Class> buildJdbcTypeCodeToJavaClassMappings() {
 		final ConcurrentHashMap<Integer, Class> workMap = new ConcurrentHashMap<>();
 
